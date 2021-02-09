@@ -28,7 +28,7 @@ var (
 	Success = Error{0, "success"}
 
 	//决策树匹配错误
-	MatchTreeEmpty    = Error{1001, "match tree is nil"}
+	MatchTreeEmpty         = Error{1001, "match tree is nil"}
 	MatchTreeFirstNotMatch = Error{1002, "match tree first not match node"}
-	MatchTreeNotMatch = Error{1002, "match tree not match node"}
+	MatchTreeNotMatch      = Error{1002, "match tree not match node"}
 )

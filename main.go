@@ -1,11 +1,11 @@
 package main
 
-import(
+import (
 	"fmt"
 	"github.com/Knetic/govaluate"
 )
 
-func main(){
+func main() {
 	expression, err := govaluate.NewEvaluableExpression("10 > 0")
 	if err != nil {
 		fmt.Println(err)

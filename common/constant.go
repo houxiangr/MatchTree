@@ -1,6 +1,5 @@
 package common
 
-
-const(
+const (
 	NextNodeStatusEOF = "EOF"
 )

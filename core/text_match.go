@@ -30,7 +30,7 @@ func TextMatch(matchMap map[string]interface{}, matchTree MatchTree) (interface{
 	}
 	//first floor not match
 	if nextFloorId == "" {
-		return nil,common.MatchTreeFirstNotMatch
+		return nil, common.MatchTreeFirstNotMatch
 	}
 
 	//deal other floor
@@ -45,7 +45,7 @@ func TextMatch(matchMap map[string]interface{}, matchTree MatchTree) (interface{
 			}
 			if result {
 				if line.IsHaveNextNode() {
-					return line.Data,nil
+					return line.Data, nil
 				}
 				nextFloorId = line.NextFloorId
 				break
@@ -53,7 +53,7 @@ func TextMatch(matchMap map[string]interface{}, matchTree MatchTree) (interface{
 		}
 	}
 
-	return nil,common.MatchTreeNotMatch
+	return nil, common.MatchTreeNotMatch
 }
 
 func matchOneLine(line MatchTreeLine, matchMap map[string]interface{}) (bool, error) {
