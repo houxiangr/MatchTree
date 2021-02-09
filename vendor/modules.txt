@@ -1,0 +1,5 @@
+# github.com/Knetic/govaluate v3.0.0+incompatible
+## explicit
+github.com/Knetic/govaluate
+# github.com/smartystreets/goconvey v0.0.0-20190731233626-505e41936337
+## explicit
