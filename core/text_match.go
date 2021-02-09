@@ -7,13 +7,13 @@ import (
 )
 
 //use by bytes config
-func TextMatchByBytes(matchMap map[string]interface{}, matchTreeBytes []byte)(interface{},error){
+func TextMatchByBytes(matchMap map[string]interface{}, matchTreeBytes []byte) (interface{}, error) {
 	var matchTree MatchTree
-	err := json.Unmarshal(matchTreeBytes,&matchTree)
+	err := json.Unmarshal(matchTreeBytes, &matchTree)
 	if err != nil {
-		return nil,err
+		return nil, err
 	}
-	return TextMatch(matchMap,matchTree)
+	return TextMatch(matchMap, matchTree)
 }
 
 //use by MatchTree struct

@@ -114,7 +114,7 @@ func TestTextMatchNormal(t *testing.T) {
 	}
 }
 
-func TestTextMatchByBytes(t *testing.T){
+func TestTextMatchByBytes(t *testing.T) {
 	testMatchTreeJson := `{
 	"match_floors": [{
 			"one_floor_node1": [{
@@ -153,7 +153,6 @@ func TestTextMatchByBytes(t *testing.T){
 		}
 	]
 }`
-
 
 	tests := []struct {
 		name    string
