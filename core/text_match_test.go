@@ -114,6 +114,106 @@ func TestTextMatchNormal(t *testing.T) {
 	}
 }
 
+func TestTextMatchByBytes(t *testing.T){
+	testMatchTreeJson := `{
+	"match_floors": [{
+			"one_floor_node1": [{
+					"expr": "a==1",
+					"next_floor_id": "two_floor_node1",
+					"data": {}
+				},
+				{
+					"expr": "a==2",
+					"next_floor_id": "two_floor_node1",
+					"data": {}
+				},
+				{
+					"expr": "a==3",
+					"next_floor_id": "EOF",
+					"data": {
+						"test": 3
+					}
+				}
+			]
+		},
+		{
+			"two_floor_node1": [{
+				"expr": "b==1",
+				"next_floor_id": "EOF",
+				"data": {
+					"test": 1
+				}
+			}, {
+				"expr": "b==2",
+				"next_floor_id": "EOF",
+				"data": {
+					"test": 2
+				}
+			}]
+		}
+	]
+}`
+
+
+	tests := []struct {
+		name    string
+		args    map[string]interface{}
+		want    string
+		wanterr error
+	}{
+		{
+			name: " a==1 && b==1，common logic",
+			args: map[string]interface{}{
+				"a": 1,
+				"b": 1,
+			},
+			want: `{"test":1}`,
+		},
+		{
+			name: " a==3 ，first floor get target",
+			args: map[string]interface{}{
+				"a": 3,
+				"b": 1,
+			},
+			want: `{"test":3}`,
+		},
+		{
+			name: " a==4 ，first not get target",
+			args: map[string]interface{}{
+				"a": 4,
+				"b": 1,
+			},
+			wanterr: common.MatchTreeFirstNotMatch,
+			want:    "",
+		},
+		{
+			name: " a==1 && b==4 ，middle floor not get target",
+			args: map[string]interface{}{
+				"a": 1,
+				"b": 4,
+			},
+			wanterr: common.MatchTreeNotMatch,
+			want:    "",
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			res, err := TextMatchByBytes(tt.args, []byte(testMatchTreeJson))
+			var wantObj interface{}
+			if tt.want != "" {
+				json.Unmarshal([]byte(tt.want), &wantObj)
+			}
+
+			if !reflect.DeepEqual(res, wantObj) {
+				t.Errorf("TestTextMatchNormal() res = %v, want %v", res, tt.want)
+			}
+			if err != tt.wanterr {
+				t.Errorf("TestTextMatchNormal() err = %v, wanterr %v", err, tt.wanterr)
+			}
+		})
+	}
+}
+
 func TestTextMatchError(t *testing.T) {
 	testMatchTreeJson := `{}`
 	testMatchTree := MatchTree{}

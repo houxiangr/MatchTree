@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8d7ba4a9-b3bc-4e53-a7cc-53c1687dce18" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/match_tree_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/core/match_tree_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/text_match.go" beforeDir="false" afterPath="$PROJECT_DIR$/core/text_match.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/text_match_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/core/text_match_test.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,8 +25,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/text_match.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-361">
-              <caret line="7" column="5" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
+            <state relative-caret-position="120">
+              <caret line="9" column="20" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
               <folding>
                 <element signature="e#14#86#0" expanded="true" />
               </folding>
@@ -46,51 +44,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/match_tree_test.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="430">
-              <caret line="37" selection-start-line="37" selection-end-line="37" />
-              <folding>
-                <element signature="e#14#52#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/common/match_error.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="31" column="22" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="105">
-                <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/common/match_error_test.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="327">
-              <caret line="140" selection-start-line="140" selection-end-line="140" />
-              <folding>
-                <element signature="e#16#48#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/common/constant.go">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="45">
@@ -99,11 +52,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/core/text_match_test.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="13" column="26" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
+            <state relative-caret-position="-176">
+              <caret line="200" column="74" selection-start-line="200" selection-start-column="74" selection-end-line="200" selection-end-column="74" />
             </state>
           </provider>
         </entry>
@@ -147,11 +100,11 @@
         <option value="$PROJECT_DIR$/core/match_tree.go" />
         <option value="$PROJECT_DIR$/go.mod" />
         <option value="$PROJECT_DIR$/common/match_error.go" />
-        <option value="$PROJECT_DIR$/core/text_match.go" />
-        <option value="$PROJECT_DIR$/core/text_match_test.go" />
         <option value="$PROJECT_DIR$/common/match_error_test.go" />
         <option value="$PROJECT_DIR$/core/match_tree_test.go" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/core/text_match.go" />
+        <option value="$PROJECT_DIR$/core/text_match_test.go" />
       </list>
     </option>
   </component>
@@ -213,7 +166,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Go Test.TestTextMatchCompare in github.com/textMatch/core">
+  <component name="RunManager" selected="Go Test.TestTextMatchByBytes in github.com/textMatch/core">
     <configuration name="TestIsHaveNextNode in github.com/textMatch/core" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="textMatch" />
       <working_directory value="$PROJECT_DIR$/core" />
@@ -225,7 +178,7 @@
       <pattern value="^TestIsHaveNextNode$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestTextMatch1 in github.com/textMatch/core" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestTextMatchByBytes in github.com/textMatch/core" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="textMatch" />
       <working_directory value="$PROJECT_DIR$/core" />
       <framework value="gotest" />
@@ -233,7 +186,7 @@
       <package value="github.com/textMatch/core" />
       <directory value="$PROJECT_DIR$/" />
       <filePath value="$PROJECT_DIR$/" />
-      <pattern value="^TestTextMatch1$" />
+      <pattern value="^TestTextMatchByBytes$" />
       <method v="2" />
     </configuration>
     <configuration name="TestTextMatchCompare in github.com/textMatch/core" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
@@ -271,18 +224,15 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Test.TestTextMatchByBytes in github.com/textMatch/core" />
         <item itemvalue="Go Test.TestTextMatchCompare in github.com/textMatch/core" />
         <item itemvalue="Go Test.TestIsHaveNextNode in github.com/textMatch/core" />
         <item itemvalue="Go Test.TestTextMatchError in github.com/textMatch/core" />
         <item itemvalue="Go Test.TestTextMatchNormal in github.com/textMatch/core" />
-        <item itemvalue="Go Test.TestTextMatch1 in github.com/textMatch/core" />
       </list>
     </recent_temporary>
   </component>
   <component name="TestHistory">
-    <history-entry file="TestTextMatchCompare_in_github_com_textMatch_core - 2021.02.09 at 20h 08m 35s.xml">
-      <configuration name="TestTextMatchCompare in github.com/textMatch/core" configurationId="GoTestRunConfiguration" />
-    </history-entry>
     <history-entry file="TestTextMatchCompare_in_github_com_textMatch_core - 2021.02.09 at 20h 09m 10s.xml">
       <configuration name="TestTextMatchCompare in github.com/textMatch/core" configurationId="GoTestRunConfiguration" />
     </history-entry>
@@ -310,6 +260,9 @@
     <history-entry file="TestTextMatchCompare_in_github_com_textMatch_core - 2021.02.09 at 20h 41m 36s.xml">
       <configuration name="TestTextMatchCompare in github.com/textMatch/core" configurationId="GoTestRunConfiguration" />
     </history-entry>
+    <history-entry file="TestTextMatchByBytes_in_github_com_textMatch_core - 2021.02.10 at 00h 36m 03s.xml">
+      <configuration name="TestTextMatchByBytes in github.com/textMatch/core" configurationId="GoTestRunConfiguration" />
+    </history-entry>
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -323,12 +276,12 @@
   <component name="ToolWindowManager">
     <frame x="4" y="23" width="1436" height="877" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.34146342" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.34146342" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.25477707" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.36815286" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -337,7 +290,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="GenProtobuf" order="10" weight="0.3299363" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.32738853" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.32738853" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -517,16 +470,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/common/match_error_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="140" selection-start-line="140" selection-end-line="140" />
-          <folding>
-            <element signature="e#16#48#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/common/constant.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -534,17 +477,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/match_tree.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="12" column="7" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="105">
+            <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
@@ -565,30 +511,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/text_match_test.go">
+    <entry file="file://$PROJECT_DIR$/common/match_error_test.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="13" column="26" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
+        <state relative-caret-position="388">
+          <caret line="140" selection-start-line="140" selection-end-line="140" />
+          <folding>
+            <element signature="e#16#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/match_tree.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/text_match.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-361">
-          <caret line="7" column="5" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
+        <state relative-caret-position="120">
+          <caret line="9" column="20" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
           <folding>
             <element signature="e#14#86#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="105">
-            <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
-          </first_editor>
-          <second_editor />
+    <entry file="file://$PROJECT_DIR$/core/text_match_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-176">
+          <caret line="200" column="74" selection-start-line="200" selection-start-column="74" selection-end-line="200" selection-end-column="74" />
         </state>
       </provider>
     </entry>

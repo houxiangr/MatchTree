@@ -1,10 +1,22 @@
 package core
 
 import (
+	"encoding/json"
 	"github.com/Knetic/govaluate"
 	"github.com/textMatch/common"
 )
 
+//use by bytes config
+func TextMatchByBytes(matchMap map[string]interface{}, matchTreeBytes []byte)(interface{},error){
+	var matchTree MatchTree
+	err := json.Unmarshal(matchTreeBytes,&matchTree)
+	if err != nil {
+		return nil,err
+	}
+	return TextMatch(matchMap,matchTree)
+}
+
+//use by MatchTree struct
 func TextMatch(matchMap map[string]interface{}, matchTree MatchTree) (interface{}, error) {
 	if matchTree.MatchFloors == nil || len(matchTree.MatchFloors) == 0 {
 		return nil, common.MatchTreeEmpty
