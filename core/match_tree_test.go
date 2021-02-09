@@ -18,7 +18,7 @@ func TestIsHaveNextNode(t *testing.T) {
 				NextFloorId: common.NextNodeStatusEOF,
 			},
 			want: true,
-		},{
+		}, {
 			name: "not eof",
 			args: MatchTreeLine{
 				NextFloorId: "test",
