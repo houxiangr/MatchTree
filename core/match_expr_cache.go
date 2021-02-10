@@ -14,7 +14,7 @@ func SetCache(matchData MatchData, line MatchTreeLine, result interface{}) error
 	if len(line.CacheKey) == 0 {
 		return nil
 	}
-	cacheKey,err = matchData.GetStringAddExpr(line)
+	cacheKey, err = matchData.GetStringAddExpr(line)
 	if err != nil {
 		return err
 	}
@@ -22,30 +22,30 @@ func SetCache(matchData MatchData, line MatchTreeLine, result interface{}) error
 	return nil
 }
 
-func IsHaveCache(matchData MatchData, line MatchTreeLine) (bool,error) {
+func IsHaveCache(matchData MatchData, line MatchTreeLine) (bool, error) {
 	var err error
 	var cacheKey string
 
 	if len(line.CacheKey) == 0 {
-		return false,nil
+		return false, nil
 	}
 
-	cacheKey,err = matchData.GetStringAddExpr(line)
+	cacheKey, err = matchData.GetStringAddExpr(line)
 	if err != nil {
-		return false,err
+		return false, err
 	}
 	if _, ok := cacheMap.Load(cacheKey); ok {
-		return true,nil
+		return true, nil
 	}
-	return false,nil
+	return false, nil
 }
 
 func GetCache(matchData MatchData, line MatchTreeLine) (bool, error) {
 	var err error
 	var cacheKey string
-	cacheKey,err = matchData.GetStringAddExpr(line)
+	cacheKey, err = matchData.GetStringAddExpr(line)
 	if err != nil {
-		return false,err
+		return false, err
 	}
 	value, ok := cacheMap.Load(cacheKey)
 	if !ok {

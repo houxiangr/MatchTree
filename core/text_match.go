@@ -73,9 +73,9 @@ func matchOneLine(line MatchTreeLine, matchData MatchData) (bool, error) {
 	var isCache bool
 	var expression *govaluate.EvaluableExpression
 	//cache the mapvalue and expr
-	isCache,err = IsHaveCache(matchData, line)
+	isCache, err = IsHaveCache(matchData, line)
 	if err != nil {
-		return false,err
+		return false, err
 	}
 	if isCache {
 		return GetCache(matchData, line)
@@ -90,7 +90,7 @@ func matchOneLine(line MatchTreeLine, matchData MatchData) (bool, error) {
 	}
 	err = SetCache(matchData, line, result)
 	if err != nil {
-		return false,err
+		return false, err
 	}
 	return result.(bool), nil
 }

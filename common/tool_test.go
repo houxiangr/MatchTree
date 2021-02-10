@@ -13,21 +13,21 @@ func TestTransferInterfaceToString(t *testing.T) {
 		wanterr error
 	}{
 		{
-			name: "int to string",
-			args: 1,
+			name:    "int to string",
+			args:    1,
 			wanterr: nil,
 			want:    "1",
 		},
 		{
-			name: "string to string",
-			args: "1",
+			name:    "string to string",
+			args:    "1",
 			wanterr: nil,
 			want:    "1",
 		},
 		{
 			name: "not match type to string",
 			args: map[string]interface{}{
-				"1":1,
+				"1": 1,
 			},
 			wanterr: NotMatchInterfaceType,
 			want:    "",
