@@ -69,10 +69,18 @@ func TextMatch(matchData MatchData, matchTree MatchTree) (interface{}, error) {
 }
 
 func matchOneLine(line MatchTreeLine, matchData MatchData) (bool, error) {
-	if IsHaveCache(matchData, line) {
+	var err error
+	var isCache bool
+	var expression *govaluate.EvaluableExpression
+	//cache the mapvalue and expr
+	isCache,err = IsHaveCache(matchData, line)
+	if err != nil {
+		return false,err
+	}
+	if isCache {
 		return GetCache(matchData, line)
 	}
-	expression, err := govaluate.NewEvaluableExpression(line.Expr)
+	expression, err = govaluate.NewEvaluableExpression(line.Expr)
 	if err != nil {
 		return false, err
 	}
@@ -80,6 +88,9 @@ func matchOneLine(line MatchTreeLine, matchData MatchData) (bool, error) {
 	if err != nil {
 		return false, err
 	}
-	SetCache(matchData, line, result)
+	err = SetCache(matchData, line, result)
+	if err != nil {
+		return false,err
+	}
 	return result.(bool), nil
 }

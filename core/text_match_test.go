@@ -307,6 +307,7 @@ func TestTextMatchCompare(t *testing.T) {
 		TextMatch(dataMap, testMatchTree)
 	}
 	fmt.Println("use match tree: ", time.Since(t1))
+	fmt.Println("cache map value: ")
 	cacheMap.Range(func(k, v interface{}) bool {
 		fmt.Println(k, " ", v)
 		return true

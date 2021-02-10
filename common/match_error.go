@@ -32,4 +32,7 @@ var (
 	MatchTreeFirstNotMatch = Error{1002, "match tree first not match node"}
 	MatchTreeNotMatch      = Error{1002, "match tree not match node"}
 	MatchCacheGetErr       = Error{1003, "match cache get err"}
+
+	//common tool err
+	NotMatchInterfaceType = Error{2003, "not match interface type"}
 )

@@ -24,14 +24,18 @@ func (this *MatchTreeLine) IsHaveNextNode() bool {
 type MatchData map[string]interface{}
 
 //return key1value1key2value2expr
-func (this MatchData) GetStringAddExpr(line MatchTreeLine) string {
+func (this MatchData) GetStringAddExpr(line MatchTreeLine) (string,error) {
 	cacheKey := []byte{}
 	for _, v := range line.CacheKey {
 		tempCacheKey := []byte{}
 		tempCacheKey = append(tempCacheKey, []byte(v)...)
-		tempCacheKey = append(tempCacheKey, []byte(common.TransferInterfaceToString(this[v]))...)
+		value,err := common.TransferInterfaceToString(this[v])
+		if err != nil {
+			return "",err
+		}
+		tempCacheKey = append(tempCacheKey, []byte(value)...)
 		cacheKey = append(cacheKey, tempCacheKey...)
 	}
 	cacheKey = append(cacheKey, []byte(line.Expr)...)
-	return string(cacheKey)
+	return string(cacheKey),nil
 }
