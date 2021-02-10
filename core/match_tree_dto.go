@@ -26,12 +26,12 @@ type MatchData map[string]interface{}
 //return key1value1key2value2expr
 func (this MatchData) GetStringAddExpr(line MatchTreeLine) string {
 	cacheKey := []byte{}
-	for _,v := range line.CacheKey {
+	for _, v := range line.CacheKey {
 		tempCacheKey := []byte{}
-		tempCacheKey = append(tempCacheKey,[]byte(v)...)
-		tempCacheKey = append(tempCacheKey,[]byte(common.TransferInterfaceToString(this[v]))...)
-		cacheKey = append(cacheKey,tempCacheKey...)
+		tempCacheKey = append(tempCacheKey, []byte(v)...)
+		tempCacheKey = append(tempCacheKey, []byte(common.TransferInterfaceToString(this[v]))...)
+		cacheKey = append(cacheKey, tempCacheKey...)
 	}
-	cacheKey = append(cacheKey,[]byte(line.Expr)...)
+	cacheKey = append(cacheKey, []byte(line.Expr)...)
 	return string(cacheKey)
 }
