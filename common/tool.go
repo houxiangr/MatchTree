@@ -6,7 +6,7 @@ import (
 )
 
 func TransferInterfaceToString(source interface{}) string {
-	switch reflect.TypeOf(source).Kind(){
+	switch reflect.TypeOf(source).Kind() {
 	case reflect.String:
 		return source.(string)
 	case reflect.Int:
