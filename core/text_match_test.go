@@ -265,6 +265,7 @@ func TestTextMatchCompare(t *testing.T) {
                 {
                     "expr": "a==1",
                     "next_floor_id": "two_floor_node1",
+					"cache_key":["a"],
                     "data": {
                         
                     }
@@ -276,6 +277,7 @@ func TestTextMatchCompare(t *testing.T) {
                 {
                     "expr": "b==1",
                     "next_floor_id": "three_floor_node1",
+					"cache_key":["b"],
                     "data": {
                         
                     }
@@ -287,6 +289,7 @@ func TestTextMatchCompare(t *testing.T) {
                 {
                     "expr": "c==1",
                     "next_floor_id": "EOF",
+					"cache_key":["c"],
                     "data": {
                         "test": 1
                     }
@@ -304,6 +307,10 @@ func TestTextMatchCompare(t *testing.T) {
 		TextMatch(dataMap, testMatchTree)
 	}
 	fmt.Println("use match tree: ", time.Since(t1))
+	cacheMap.Range(func(k,v interface{})bool{
+		fmt.Println(k," ",v)
+		return true
+	})
 
 	t2 := time.Now() // get current time
 	for i := 0; i < 100000; i++ {

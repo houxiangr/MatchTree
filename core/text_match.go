@@ -7,17 +7,17 @@ import (
 )
 
 //use by bytes config
-func TextMatchByBytes(matchMap map[string]interface{}, matchTreeBytes []byte) (interface{}, error) {
+func TextMatchByBytes(matchData MatchData, matchTreeBytes []byte) (interface{}, error) {
 	var matchTree MatchTree
 	err := json.Unmarshal(matchTreeBytes, &matchTree)
 	if err != nil {
 		return nil, err
 	}
-	return TextMatch(matchMap, matchTree)
+	return TextMatch(matchData, matchTree)
 }
 
 //use by MatchTree struct
-func TextMatch(matchMap map[string]interface{}, matchTree MatchTree) (interface{}, error) {
+func TextMatch(matchData MatchData, matchTree MatchTree) (interface{}, error) {
 	if matchTree.MatchFloors == nil || len(matchTree.MatchFloors) == 0 {
 		return nil, common.MatchTreeEmpty
 	}
@@ -26,12 +26,12 @@ func TextMatch(matchMap map[string]interface{}, matchTree MatchTree) (interface{
 	//deal first floor
 	for _, floorMap := range matchTree.MatchFloors[0] {
 		for _, line := range floorMap {
-			result, err := matchOneLine(line, matchMap)
+			result, err := matchOneLine(line, matchData)
 			if err != nil {
 				return nil, err
 			}
 			if result {
-				//todo test 如果第一层已经结束了，直接返回
+				// is first floor get target,return
 				if line.IsHaveNextNode() {
 					return line.Data, nil
 				}
@@ -51,7 +51,7 @@ func TextMatch(matchMap map[string]interface{}, matchTree MatchTree) (interface{
 		lineMap := matchTree.MatchFloors[i]
 		targetLines := lineMap[nextFloorId]
 		for _, line := range targetLines {
-			result, err := matchOneLine(line, matchMap)
+			result, err := matchOneLine(line, matchData)
 			if err != nil {
 				return nil, err
 			}
@@ -68,14 +68,18 @@ func TextMatch(matchMap map[string]interface{}, matchTree MatchTree) (interface{
 	return nil, common.MatchTreeNotMatch
 }
 
-func matchOneLine(line MatchTreeLine, matchMap map[string]interface{}) (bool, error) {
+func matchOneLine(line MatchTreeLine, matchData MatchData) (bool, error) {
+	if IsHaveCache(matchData,line) {
+		return GetCache(matchData,line)
+	}
 	expression, err := govaluate.NewEvaluableExpression(line.Expr)
 	if err != nil {
 		return false, err
 	}
-	result, err := expression.Evaluate(matchMap)
+	result, err := expression.Evaluate(matchData)
 	if err != nil {
 		return false, err
 	}
+	SetCache(matchData,line,result)
 	return result.(bool), nil
 }

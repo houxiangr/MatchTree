@@ -31,4 +31,5 @@ var (
 	MatchTreeEmpty         = Error{1001, "match tree is nil"}
 	MatchTreeFirstNotMatch = Error{1002, "match tree first not match node"}
 	MatchTreeNotMatch      = Error{1002, "match tree not match node"}
+	MatchCacheGetErr       = Error{1003, "match cache get err"}
 )
