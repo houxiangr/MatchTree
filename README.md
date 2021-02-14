@@ -1,10 +1,12 @@
-# textMatch
+# MatchTree
 输入map[string]interface和决策树节点。
 输出决策出的最后的结果
 
 通过将表达式变成一个决策树，减少判断条件的次数
 
 example:
+`a==1 && b==1 && c==1`
+to
 `{
 	"match_floors": [{
 			"one_floor_node1": [{
