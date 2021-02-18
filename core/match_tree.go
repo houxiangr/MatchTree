@@ -13,11 +13,11 @@ func MatchTreeByBytes(matchData MatchData, matchTreeBytes []byte) (interface{}, 
 	if err != nil {
 		return nil, err
 	}
-	return MatchTree(matchData, matchTree)
+	return MatchTreeLogic(matchData, matchTree)
 }
 
 //use by MatchTree struct
-func MatchTree(matchData MatchData, matchTree MatchTree) (interface{}, error) {
+func MatchTreeLogic(matchData MatchData, matchTree MatchTree) (interface{}, error) {
 	if matchTree.MatchFloors == nil || len(matchTree.MatchFloors) == 0 {
 		return nil, common.MatchTreeEmpty
 	}

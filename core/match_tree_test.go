@@ -98,7 +98,7 @@ func TestMatchTreeNormal(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			res, err := MatchTree(tt.args, testMatchTree)
+			res, err := MatchTreeLogic(tt.args, testMatchTree)
 			var wantObj interface{}
 			if tt.want != "" {
 				json.Unmarshal([]byte(tt.want), &wantObj)
@@ -239,7 +239,7 @@ func TestMatchTreeError(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			res, err := MatchTree(tt.args, testMatchTree)
+			res, err := MatchTreeLogic(tt.args, testMatchTree)
 			if !reflect.DeepEqual(res, tt.want) {
 				t.Errorf("TestMatchTreeNormal() res = %v, want %v", res, tt.want)
 			}
@@ -304,7 +304,7 @@ func TestMatchTreeCompare(t *testing.T) {
 		t.Error(err)
 	}
 	for i := 0; i < 100000; i++ {
-		MatchTree(dataMap, testMatchTree)
+		MatchTreeLogic(dataMap, testMatchTree)
 	}
 	fmt.Println("use match tree: ", time.Since(t1))
 	fmt.Println("cache map value: ")
