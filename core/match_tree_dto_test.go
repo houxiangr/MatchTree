@@ -1,7 +1,7 @@
 package core
 
 import (
-	"github.com/textMatch/common"
+	"github.com/MatchTree/common"
 	"reflect"
 	"testing"
 )
@@ -30,7 +30,7 @@ func TestIsHaveNextNode(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			res := tt.args.IsHaveNextNode()
 			if !reflect.DeepEqual(res, tt.want) {
-				t.Errorf("TestTextMatchNormal() res = %v, want %v", res, tt.want)
+				t.Errorf("TestMatchTreeNormal() res = %v, want %v", res, tt.want)
 			}
 		})
 
@@ -63,10 +63,10 @@ func TestGetStringAddExpr(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			res, err := matchData.GetStringAddExpr(tt.args)
 			if !reflect.DeepEqual(res, tt.want) {
-				t.Errorf("TestTextMatchNormal() res = %v, want %v", res, tt.want)
+				t.Errorf("TestMatchTreeNormal() res = %v, want %v", res, tt.want)
 			}
 			if err != tt.wanterr {
-				t.Errorf("TestTextMatchNormal() err = %v, wanterr %v", err, tt.wanterr)
+				t.Errorf("TestMatchTreeNormal() err = %v, wanterr %v", err, tt.wanterr)
 			}
 		})
 

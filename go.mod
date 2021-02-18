@@ -1,4 +1,4 @@
-module github.com/textMatch
+module github.com/MatchTree
 
 go 1.14
 

@@ -1,7 +1,7 @@
 package core
 
 import (
-	"github.com/textMatch/common"
+	"github.com/MatchTree/common"
 	"sync"
 )
 

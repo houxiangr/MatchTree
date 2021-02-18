@@ -3,21 +3,21 @@ package core
 import (
 	"encoding/json"
 	"github.com/Knetic/govaluate"
-	"github.com/textMatch/common"
+	"github.com/MatchTree/common"
 )
 
 //use by bytes config
-func TextMatchByBytes(matchData MatchData, matchTreeBytes []byte) (interface{}, error) {
+func MatchTreeByBytes(matchData MatchData, matchTreeBytes []byte) (interface{}, error) {
 	var matchTree MatchTree
 	err := json.Unmarshal(matchTreeBytes, &matchTree)
 	if err != nil {
 		return nil, err
 	}
-	return TextMatch(matchData, matchTree)
+	return MatchTree(matchData, matchTree)
 }
 
 //use by MatchTree struct
-func TextMatch(matchData MatchData, matchTree MatchTree) (interface{}, error) {
+func MatchTree(matchData MatchData, matchTree MatchTree) (interface{}, error) {
 	if matchTree.MatchFloors == nil || len(matchTree.MatchFloors) == 0 {
 		return nil, common.MatchTreeEmpty
 	}

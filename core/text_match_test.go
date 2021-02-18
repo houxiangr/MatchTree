@@ -4,13 +4,13 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/Knetic/govaluate"
-	"github.com/textMatch/common"
+	"github.com/MatchTree/common"
 	"reflect"
 	"testing"
 	"time"
 )
 
-func TestTextMatchNormal(t *testing.T) {
+func TestMatchTreeNormal(t *testing.T) {
 	testMatchTreeJson := `{
 	"match_floors": [{
 			"one_floor_node1": [{
@@ -98,23 +98,23 @@ func TestTextMatchNormal(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			res, err := TextMatch(tt.args, testMatchTree)
+			res, err := MatchTree(tt.args, testMatchTree)
 			var wantObj interface{}
 			if tt.want != "" {
 				json.Unmarshal([]byte(tt.want), &wantObj)
 			}
 
 			if !reflect.DeepEqual(res, wantObj) {
-				t.Errorf("TestTextMatchNormal() res = %v, want %v", res, tt.want)
+				t.Errorf("TestMatchTreeNormal() res = %v, want %v", res, tt.want)
 			}
 			if err != tt.wanterr {
-				t.Errorf("TestTextMatchNormal() err = %v, wanterr %v", err, tt.wanterr)
+				t.Errorf("TestMatchTreeNormal() err = %v, wanterr %v", err, tt.wanterr)
 			}
 		})
 	}
 }
 
-func TestTextMatchByBytes(t *testing.T) {
+func TestMatchTreeByBytes(t *testing.T) {
 	testMatchTreeJson := `{
 	"match_floors": [{
 			"one_floor_node1": [{
@@ -197,23 +197,23 @@ func TestTextMatchByBytes(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			res, err := TextMatchByBytes(tt.args, []byte(testMatchTreeJson))
+			res, err := MatchTreeByBytes(tt.args, []byte(testMatchTreeJson))
 			var wantObj interface{}
 			if tt.want != "" {
 				json.Unmarshal([]byte(tt.want), &wantObj)
 			}
 
 			if !reflect.DeepEqual(res, wantObj) {
-				t.Errorf("TestTextMatchNormal() res = %v, want %v", res, tt.want)
+				t.Errorf("TestMatchTreeNormal() res = %v, want %v", res, tt.want)
 			}
 			if err != tt.wanterr {
-				t.Errorf("TestTextMatchNormal() err = %v, wanterr %v", err, tt.wanterr)
+				t.Errorf("TestMatchTreeNormal() err = %v, wanterr %v", err, tt.wanterr)
 			}
 		})
 	}
 }
 
-func TestTextMatchError(t *testing.T) {
+func TestMatchTreeError(t *testing.T) {
 	testMatchTreeJson := `{}`
 	testMatchTree := MatchTree{}
 	err := json.Unmarshal([]byte(testMatchTreeJson), &testMatchTree)
@@ -239,19 +239,19 @@ func TestTextMatchError(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			res, err := TextMatch(tt.args, testMatchTree)
+			res, err := MatchTree(tt.args, testMatchTree)
 			if !reflect.DeepEqual(res, tt.want) {
-				t.Errorf("TestTextMatchNormal() res = %v, want %v", res, tt.want)
+				t.Errorf("TestMatchTreeNormal() res = %v, want %v", res, tt.want)
 			}
 			if err != tt.wanterr {
-				t.Errorf("TestTextMatchNormal() err = %v, wanterr %v", err, tt.wanterr)
+				t.Errorf("TestMatchTreeNormal() err = %v, wanterr %v", err, tt.wanterr)
 			}
 		})
 	}
 }
 
 // compare time consuming without match tree
-func TestTextMatchCompare(t *testing.T) {
+func TestMatchTreeCompare(t *testing.T) {
 	dataMap := map[string]interface{}{
 		"a": 1,
 		"b": 1,
@@ -304,7 +304,7 @@ func TestTextMatchCompare(t *testing.T) {
 		t.Error(err)
 	}
 	for i := 0; i < 100000; i++ {
-		TextMatch(dataMap, testMatchTree)
+		MatchTree(dataMap, testMatchTree)
 	}
 	fmt.Println("use match tree: ", time.Since(t1))
 	fmt.Println("cache map value: ")
