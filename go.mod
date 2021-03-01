@@ -1,4 +1,4 @@
-module github.com/MatchTree
+module github.com/houxiangr/MatchTree
 
 go 1.14
 
