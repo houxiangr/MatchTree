@@ -5,6 +5,7 @@ import (
 	"sync"
 )
 
+//todo 待go-cache替换
 var cacheMap = sync.Map{}
 
 func SetCache(matchData MatchData, line MatchTreeLine, result interface{}) error {
